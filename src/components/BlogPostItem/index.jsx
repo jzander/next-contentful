@@ -28,7 +28,6 @@ const CenteredHero = lazy(() =>
 
 export default function BlogPostItem({ blogPost, latestPosts, globalData }) {
   const WEBSITE = process.env.WEBSITE_URL;
-//   const globalData = {};
 
   return (
     <Box>
@@ -100,8 +99,8 @@ export default function BlogPostItem({ blogPost, latestPosts, globalData }) {
                   px={10}
                   py={10}
                 >
-                  <Heading as={"h2"}>Reach Out To Spray Foam Insulation Westminster</Heading>
-                  <Text fontSize={"x-large"}>Delivering Quality Insulation Solutions in Westminster, Colorado</Text>
+                  <Heading as={'h2'}>{globalData.heading}</Heading>
+                  <Text fontSize={'x-large'}>{globalData.subtitle}</Text>
                   <Button leftIcon={<PhoneIcon/>} size={'lg'} bg={'#1eb924'} textTransform="uppercase"
                                             mt={5}
                                             color={'#fff'} as={'a'} _hover={{bg: globalData?.brandColor?.value}}
