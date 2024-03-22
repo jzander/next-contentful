@@ -1,7 +1,8 @@
+'use client'
 import {chakra, HStack, Icon, Stack, Tag, useColorModeValue,} from '@chakra-ui/react'
 import {FaEnvelope, FaFacebook} from 'react-icons/fa'
 
-export const Share = (props) => {
+ const Share = (props) => {
     const {label = 'Share this post', facebookUrl, emailUrl, rootProps} = props
     return (
         <Stack {...rootProps}>
@@ -43,3 +44,5 @@ const ShareButton = (props) => (
         {...props}
     />
 )
+
+export default Share

@@ -77,7 +77,7 @@ const Hero = ({
                                     }}
                                     borderRadius={0}
                                     lineHeight={'26px'} minH={'56px'} px={10} fontWeight={'bold'} letterSpacing={'1px'}
-                                    textTransform={'uppercase'}>call us toady!</Button>
+                                    textTransform={'uppercase'}>call us today!</Button>
                         </Stack>
                     </Box>
                 </Box>

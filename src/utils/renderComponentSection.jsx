@@ -3,6 +3,7 @@ import {Box} from '@chakra-ui/react';
 
 const componentsMap = {
     'HeaderSection': lazy(() => import('@/components/Hero/Hero.jsx')),
+    'CenteredHero': lazy(() => import('@/components/CenteredHero/CenteredHero')),
     'ContactSection': lazy(() => import('@/components/ContactForm/ContactForm.jsx')),
     'MapSection': lazy(() => import('@/components/Map/Map.jsx')),
     'BannerSection': lazy(() => import('@/components/CallToAction/CallToAction.jsx')),

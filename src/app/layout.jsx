@@ -21,6 +21,8 @@ export default async function RootLayout({children}) {
         navigation: global.navigation,
         footerNavigation: global.footerNavigation,
         gtmScript,
+        logo: globalData.logo,
+        phoneNumber: globalData.phoneNumber
     };
     return (
         <html lang='en'>

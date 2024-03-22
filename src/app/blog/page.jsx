@@ -1,4 +1,4 @@
-import {CenteredHero} from "@/components/CenteredHero/CenteredHero";
+import CenteredHero from "@/components/CenteredHero/CenteredHero";
 import {Container, SimpleGrid, Stack} from "@chakra-ui/react";
 import {BlogPost} from "@/components/BlogPost/BlogPost";
 import {client} from "../../../lib/api";

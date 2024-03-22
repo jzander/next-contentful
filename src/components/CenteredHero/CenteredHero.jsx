@@ -1,20 +1,20 @@
 import {Box, Button, Flex, Heading, Image, LightMode, Stack, Text} from "@chakra-ui/react";
 
-export const CenteredHero = ({
-                                 header,
-                                 subtitle,
-                                 cta,
-                                 imgSrc,
-                                 badgeSrc,
-                                 badgeTwoSrc,
-                                 useH1,
-                                 phoneNumber,
-                                 buttonColor,
-                                 colorOverlay,
-                                 overlayOpacity,
-                                 headerFontColor,
-                                 backgroundColor,
-                             }) => {
+const CenteredHero = ({
+                          header,
+                          subtitle,
+                          cta,
+                          imgSrc,
+                          badgeSrc,
+                          badgeTwoSrc,
+                          useH1,
+                          phoneNumber,
+                          buttonColor,
+                          colorOverlay,
+                          overlayOpacity,
+                          headerFontColor,
+                          backgroundColor,
+                      }) => {
     return (
         <Box>
             <Box as="section" color={headerFontColor ? headerFontColor.value : 'white'} py={{base: '10', md: '32'}}
@@ -74,7 +74,7 @@ export const CenteredHero = ({
                                     bg={buttonColor?.value || 'blue.800'} color={'white'}
                                     _hover={{bg: 'gray.700', color: 'white', cursor: 'pointer'}} borderRadius={0}
                                     lineHeight={'26px'} minH={'56px'} px={10} fontWeight={'bold'} letterSpacing={'1px'}
-                                    textTransform={'uppercase'}>{cta || 'call us toady!'}</Button>
+                                    textTransform={'uppercase'}>{cta || 'call us today!'}</Button>
                         </LightMode>
                     </Stack>
                 </Box>
@@ -109,3 +109,4 @@ export const CenteredHero = ({
         </Box>
     )
 }
+export default CenteredHero

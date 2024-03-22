@@ -1,9 +1,9 @@
-import {renderComponentSection} from "@/utils/renderComponentSection";
-import {client} from "../../lib/api";
 import {Box} from "@chakra-ui/react";
+import { renderComponentSection } from '@/utils/renderComponentSection';
+import { client } from "../../../lib/api";
 
-export default async function Home() {
-    const response = await client.fetchContentfulDataGraphQL('Homepage')
+export default async function Page({ params }) {
+    const response = await client.fetchContentfulPageBySlugDataGql(params.slug)
     if (!response?.pageData) {
         return {
             pageData: {},
@@ -14,23 +14,24 @@ export default async function Home() {
         }
     }
 
-    const global = await client.fetchContentfulGlobalDataGraphQL()
-    const {globalData} = global
+    const data = await client.fetchContentfulGlobalDataGraphQL()
+    const {globalData} = data
 
     const {
-        components,
-        blogPosts,
         pageData,
         servicePages,
-        website = process.env.WEBSITE_URL,
-        googleApiKey = process.env.GOOGLE_API_KEY
+        components,
+        blogPosts,
+        website= process.env.WEBSITE_URL,
+        googleApiKey= process.env.GOOGLE_API_KEY
     } = response
     if (!components.length) {
         return null;
     }
+
     return (
         <Box>
-            {components?.map((component, idx) => {
+            {components?.length > 0 && components?.map((component, idx) => {
                 return (
                     <Box key={`${component['__typename']}-${idx}`}>
                         {renderComponentSection(
