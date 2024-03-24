@@ -22,7 +22,7 @@ export async function NotFoundSection() {
                 borderRadius="xl"
             >
                 <VStack spacing="8">
-                    <Heading size="xl" textAlign="center">Oops! Page Not Found</Heading>
+                    <Heading size="xl" textAlign="center" as={'h1'}>Oops! Page Not Found</Heading>
                     <Text color="gray.600" textAlign="center">
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
                         The page you're looking for doesn't exist or has been moved.
