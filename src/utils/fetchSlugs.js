@@ -1,4 +1,4 @@
-import client from "./contentfulClient.js";
+import client from "@/utils/contentfulClient";
 
 async function fetchSlugs(website) {
     const contentTypes = [
