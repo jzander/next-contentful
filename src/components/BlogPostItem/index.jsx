@@ -28,7 +28,6 @@ const CenteredHero = lazy(() =>
 
 export default function BlogPostItem({ blogPost, latestPosts, globalData }) {
   const WEBSITE = process.env.WEBSITE_URL;
-
   return (
     <Box>
       <CenteredHero
@@ -54,9 +53,9 @@ export default function BlogPostItem({ blogPost, latestPosts, globalData }) {
             {formatDate(blogPost?.sys?.firstPublishedAt)}
           </Tag>
           <Share
-            facebookUrl={createFacebookShareLink(window.location.href)}
+            facebookUrl={createFacebookShareLink(`${WEBSITE}/blog/${blogPost?.slug}`)}
             emailUrl={shareThisBlogPostViaEmail(
-              window.location.href,
+                `${WEBSITE}/blog/${blogPost?.slug}`,
               blogPost?.title
             )}
           />

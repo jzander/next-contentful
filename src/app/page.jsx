@@ -2,7 +2,13 @@ import {renderComponentSection} from "@/utils/renderComponentSection";
 import {client} from "../../lib/api";
 import {Box} from "@chakra-ui/react";
 
-export default async function Home() {
+export async function getGlobalData() {
+    const global = await client.fetchContentfulGlobalDataGraphQL()
+    const {globalData} = global
+    return globalData;
+}
+
+export async function getPageData() {
     const response = await client.fetchContentfulDataGraphQL('Homepage')
     if (!response?.pageData) {
         return {
@@ -13,10 +19,6 @@ export default async function Home() {
             googleApiKey: process.env.GOOGLE_API_KEY
         }
     }
-
-    const global = await client.fetchContentfulGlobalDataGraphQL()
-    const {globalData} = global
-
     const {
         components,
         blogPosts,
@@ -25,6 +27,43 @@ export default async function Home() {
         website = process.env.WEBSITE_URL,
         googleApiKey = process.env.GOOGLE_API_KEY
     } = response
+    return {
+        components,
+        blogPosts,
+        pageData,
+        servicePages,
+        website,
+        googleApiKey
+    }
+}
+
+export async function generateMetadata() {
+    const globalData = await getGlobalData()
+    const {
+        pageData,
+    } = await getPageData()
+    const themeColor = globalData?.themeColor?.value || '#000'
+    return {
+        title: pageData?.metaTitle || globalData?.websiteTitle,
+        description: pageData?.metaDescription,
+        openGraph: {
+            images: pageData?.metaImage?.url,
+        },
+        'theme-color': themeColor
+    }
+}
+
+
+export default async function Home() {
+    const globalData = await getGlobalData()
+    const {
+        components,
+        blogPosts,
+        pageData,
+        servicePages,
+        website = process.env.WEBSITE_URL,
+        googleApiKey = process.env.GOOGLE_API_KEY
+    } = await getPageData()
     if (!components.length) {
         return null;
     }
