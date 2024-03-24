@@ -1,20 +1,24 @@
 import {Button, Container, Flex, Heading, Link, Text, VStack} from "@chakra-ui/react";
+import {getGlobalData} from "@/app/page";
+import {FaArrowRight} from "react-icons/fa";
 
-export const NotFoundSection = () => {
+export async function NotFoundSection() {
+    const globalData = await getGlobalData()
     return (
         <Flex
             direction="column"
             alignItems="center"
             justifyContent="center"
-            minH="100vh"
-            bgGradient="linear(to-r, blue.600, blue.400)"
+            my="5%"
+            // minH="100vh"
+            // bgGradient="linear(to-r, blue.600, blue.400)"
         >
             <Container
                 maxW="xl"
                 py="8"
                 px={{base: '4', sm: '10'}}
                 bg="white"
-                boxShadow="xl"
+                // boxShadow="xl"
                 borderRadius="xl"
             >
                 <VStack spacing="8">
@@ -27,7 +31,8 @@ export const NotFoundSection = () => {
                         If you think this is a mistake, please <Link color="blue.500" href="/contact">contact
                         support</Link>.
                     </Text>
-                    <Button colorScheme="blue" as="a" href="/">
+                    <Button bg={globalData.brandColor.value} _hover={{bg: globalData.brandColor.value}} color={'#fff'}
+                            as="a" href="/" rightIcon={<FaArrowRight/>}>
                         Go Back Home
                     </Button>
                 </VStack>
