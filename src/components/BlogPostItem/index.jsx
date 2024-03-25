@@ -174,7 +174,6 @@ export default function BlogPostItem({ blogPost, latestPosts, globalData }) {
                               </Text>
                               <Heading size="md">{post.title}</Heading>
                               <Text color="fg.muted">{post.excerpt}</Text>
-                              <Text fontWeight="bold">Read article</Text>
                             </Stack>
                           </Stack>
                         </Stack>

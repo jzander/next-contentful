@@ -59,7 +59,6 @@ export default async function Home() {
     const {
         components,
         blogPosts,
-        pageData,
         servicePages,
         website = process.env.WEBSITE_URL,
         googleApiKey = process.env.GOOGLE_API_KEY

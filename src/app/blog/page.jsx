@@ -50,7 +50,7 @@ export default async function Blog() {
                     <Stack spacing={{base: '12', md: '16'}}>
                         {/*<BlogPost post={posts[0]} isHero/>*/}
                         <SimpleGrid columns={{base: 1, md: 2, lg: 3}} gap={{base: '12', lg: '8'}}>
-                            {posts?.length > 0 && posts?.sort((a, b) => new Date(b.firstPublishedAt) - new Date(a.firstPublishedAt)).map((post, idx) => (
+                            {posts?.length > 0 && posts?.sort((a, b) => new Date(b.sys.firstPublishedAt) - new Date(a.sys.firstPublishedAt)).map((post, idx) => (
                                 <BlogPost key={`${post.id}-${idx}`} post={post}
                                           brandColor={globalData.brandColor.value}/>
                             ))}

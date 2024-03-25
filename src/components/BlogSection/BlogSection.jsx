@@ -112,8 +112,6 @@ const BlogSection = ({posts, preHeading, heading, subheading, cta, brandColor, b
                                             <Heading size="md" as={'h3'} noOfLines={2}>{post.title}</Heading>
                                             <Text color="fg.muted" noOfLines={3}>{post.excerpt}</Text>
                                             {/* eslint-disable-next-line react/prop-types */}
-                                            <Text fontWeight={'bold'} color={brandColor?.value}
-                                                  _hover={{textDecoration: 'underline'}}>Read article</Text>
                                         </Stack>
                                     </Stack>
                                 </Link>
@@ -121,7 +119,7 @@ const BlogSection = ({posts, preHeading, heading, subheading, cta, brandColor, b
                         })}
                     </SimpleGrid>
                     <Box mx={'auto'} mt={6}>
-                        <Button size="lg" color={'white'} bg={brandColor?.value} rightIcon={<FaArrowRight/>}
+                        <Button size="lg" color={'white'} as={'a'} href={'/blog'} bg={brandColor?.value} rightIcon={<FaArrowRight/>}
                                 _hover={{
                                     bg: `#${LightenDarkenColor(brandColor?.value.replace("#", ''), 40)}`
                                 }}>{cta || 'See all blog posts'}</Button>

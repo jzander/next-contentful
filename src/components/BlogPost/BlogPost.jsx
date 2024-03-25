@@ -25,8 +25,6 @@ export const BlogPost = (props) => {
                         </HStack>
                         <Heading size="md" noOfLines={2}>{post.title}</Heading>
                         <Text color="fg.muted" noOfLines={5}>{post.excerpt}</Text>
-                        <Text fontWeight={'bold'} color={brandColor}
-                              _hover={{textDecoration: 'underline'}}>Read article <FaArrowRight/></Text>
                     </Stack>
                 </Stack>
             </Stack>
