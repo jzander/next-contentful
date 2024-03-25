@@ -16,15 +16,9 @@ export async function getPageBlogData() {
 
 export async function generateMetadata({params}) {
     const globalData = await getGlobalData()
-    const {blogPageData, pageData} = await getPageBlogData();
+    const {blogPageData} = await getPageBlogData();
     const {metaTitle = "", metaDescription = "", metaImage = ""} = blogPageData
     const themeColor = globalData?.themeColor?.value || '#000'
-    if (isEmpty(pageData)) {
-        return {
-            title: 'Page Not Found | Westminster Spray Foam Insulation Experts',
-            description: 'Oops! The page you\'re looking for has vanished. Return to our homepage to find expert solutions for energy-efficient living spaces.',
-        }
-    }
     return {
         title: metaTitle,
         description: metaDescription,
