@@ -17,10 +17,10 @@ export async function getBlogPostData(slug) {
 export async function generateMetadata({params}) {
     const globalData = await getGlobalData()
     const {blogPost, WEBSITE} = await getBlogPostData(params.blogPost);
-    const {title, metaDescription, image} = blogPost;
+    const {title, metaDescription, metaTitle, image} = blogPost;
     const themeColor = globalData?.themeColor?.value || '#000'
     return {
-        title: title,
+        title: metaTitle || title,
         description: metaDescription,
         openGraph: {
             images: image?.url
