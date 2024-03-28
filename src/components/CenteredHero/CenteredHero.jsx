@@ -36,10 +36,10 @@ const CenteredHero = ({
                         {badgeSrc || badgeTwoSrc &&
                             <Box display={'flex'} gap={55} alignItems={'center'} justifyContent={'center'} pb={10}>
                                 {badgeSrc &&
-                                    <img src={badgeSrc} alt=""/>
+                                    <Image src={badgeSrc} alt=""/>
                                 }
                                 {badgeTwoSrc &&
-                                    <img src={badgeTwoSrc} alt=""/>
+                                    <Image src={badgeTwoSrc} alt=""/>
                                 }
                             </Box>
                         }
