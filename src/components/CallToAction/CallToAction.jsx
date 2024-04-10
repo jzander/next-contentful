@@ -21,7 +21,7 @@ const CallToAction = ({
             md: '7xl',
         }}
     >
-        <Link href={`tel:${phoneNumber}`} color={fontColorLight ? "white" : 'gray.800'}
+        <Link aria-label={phoneNumber} href={`tel:${phoneNumber}`} color={fontColorLight ? "white" : 'gray.800'}
               _hover={{textDecoration: 'none', color: 'initial'}}>
             <Box
                 bg={backgroundColor?.value || 'gray.400'}

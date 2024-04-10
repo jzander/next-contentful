@@ -61,7 +61,7 @@ export const Footer = ({
                         {/*<Text color="fg.accent.muted">{SiteData.homepage.footerText2}</Text>*/}
                         <VStack spacing={2} textAlign={'left'} alignItems={'start'}>
                             <Text color="fg.accent.muted">
-                                <Link href={`tel:${phoneNumber}`} _hover={{textDecoration: 'none'}}>
+                                <Link aria-label={phoneNumber} href={`tel:${phoneNumber}`} _hover={{textDecoration: 'none'}}>
                                     <span style={{
                                         display: 'flex',
                                         justifyContent: 'center'
@@ -98,7 +98,7 @@ export const Footer = ({
                                         {servicePages.map((page, idx) => {
                                             return (
                                                 <Button fontWeight="normal" key={idx} as="a" variant="text.accent"
-                                                        justifyContent={'start'} h={8} px={0}
+                                                        justifyContent={'start'} h={8} px={0} aria-label={page.title}
                                                         href={`/${page.slug}`}>
                                                     {page.title}
                                                 </Button>
@@ -126,6 +126,7 @@ export const Footer = ({
                                                 <Button fontWeight="normal" h={8} px={0} key={idx} as="a"
                                                         variant="text.accent"
                                                         justifyContent={'start'}
+                                                        aria-label={navItem.page.title}
                                                         href={getNavPath(navItem.page.slug)}>
                                                     {navItem.title}
                                                 </Button>
@@ -166,11 +167,12 @@ export const Footer = ({
                                             icon={<FaLinkedin/>}/>}
                             {footerSocialLinks?.yelp &&
                                 <IconButton as="a" href={footerSocialLinks.yelp} target={"_blank"}
-                                            aria-label="Twitter"
+                                            aria-label="Yelp"
                                             icon={<FaYelp/>}/>}
                             {footerSocialLinks?.googleBusinessURL &&
                                 <IconButton as="a" href={footerSocialLinks.googleBusinessURL} target="_blank"
-                                            aria-label="Twitter" icon={<TbMapPinFilled/>}/>}
+                                            aria-label="Google Business URL"
+                                            icon={<TbMapPinFilled/>}/>}
                         </ButtonGroup>
                     }
                 </Stack>

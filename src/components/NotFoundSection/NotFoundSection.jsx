@@ -28,11 +28,11 @@ export async function NotFoundSection() {
                         The page you're looking for doesn't exist or has been moved.
                     </Text>
                     <Text color="gray.600" textAlign="center">
-                        If you think this is a mistake, please <Link color="blue.500" href="/contact">contact
+                        If you think this is a mistake, please <Link color="blue.500" href="/contact" aria-label={'contact support'}>contact
                         support</Link>.
                     </Text>
                     <Button bg={globalData.brandColor.value} _hover={{bg: globalData.brandColor.value}} color={'#fff'}
-                            as="a" href="/" rightIcon={<FaArrowRight/>}>
+                            as="a" aria-label='Go Back Home' href="/" rightIcon={<FaArrowRight/>}>
                         Go Back Home
                     </Button>
                 </VStack>

@@ -44,7 +44,7 @@ export const TopBar = ({globalData}) => {
                             <Text display={'flex'} alignItems={'center'} gap={2} fontWeight={'bold'}
                                   size={'xs'}><BsClockHistory/>{hoursOfOperation}</Text>
                             <Button size={'xs'} variant={'ghost'} color='#FFA903' _hover={{bg: '#051050'}}
-                                    as={'a'}
+                                    as={'a'} aria-label={topBarText}
                                     href={`tel:${phoneNumber}`}>{topBarText}</Button>
                         </Stack>
                     </Stack>

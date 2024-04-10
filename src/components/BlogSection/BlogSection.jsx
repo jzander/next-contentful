@@ -61,7 +61,7 @@ const BlogSection = ({posts, preHeading, heading, subheading, cta, brandColor, b
                                 {subheading}
                             </Text>
                         </Stack>
-                        <Button variant="ghost" as={'a'} size="xl" px={5} href={'/blog'} _hover={{bg: 'initial'}}
+                        <Button variant="ghost" as={'a'} size="xl" px={5} href={'/blog'} aria-label={cta || 'See all blog posts'} _hover={{bg: 'initial'}}
                                 rightIcon={<FaArrowRight/>}>{cta || 'See all blog posts'}</Button>
                     </Stack>
                     <SimpleGrid
@@ -83,6 +83,7 @@ const BlogSection = ({posts, preHeading, heading, subheading, cta, brandColor, b
                                     _hover={{
                                         textDecor: 'none',
                                     }}
+                                    aria-label={post?.title}
                                     href={`/blog/${post.slug}`}
                                     role="group"
                                 >
@@ -120,6 +121,7 @@ const BlogSection = ({posts, preHeading, heading, subheading, cta, brandColor, b
                     </SimpleGrid>
                     <Box mx={'auto'} mt={6}>
                         <Button size="lg" color={'white'} as={'a'} href={'/blog'} bg={brandColor?.value} rightIcon={<FaArrowRight/>}
+                                aria-label={cta || 'See all blog posts'}
                                 _hover={{
                                     bg: `#${LightenDarkenColor(brandColor?.value.replace("#", ''), 40)}`
                                 }}>{cta || 'See all blog posts'}</Button>

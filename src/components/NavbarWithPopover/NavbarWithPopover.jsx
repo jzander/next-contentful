@@ -64,10 +64,11 @@ export const NavBar = ({logo, phoneNumber, navigation}) => {
                                         return (
                                             <Link href={getNavPath(navItem.page?.slug)}
                                                   key={`${navItem.page.title}-${idx}`}
+                                                  aria-label={navItem.title}
                                                   color={'gray.800'}>{navItem.title}</Link>
                                         )
                                     })}
-                                    <Link href={'/blog'} color={'gray.800'}>{'Blog'}</Link>
+                                    <Link href={'/blog'} color={'gray.800'} aria-label={'Blog'}>{'Blog'}</Link>
                                 </ButtonGroup>
                             </HStack>
                             <Stack
@@ -84,7 +85,7 @@ export const NavBar = ({logo, phoneNumber, navigation}) => {
                                 <SlideFade direction='top' in={isOpen} style={{zIndex: 10}} offsetY='70px'
                                            transition={{exit: {delay: 1}, enter: {duration: 0.5}}}>
                                     <Button rightIcon={<FaPhone/>} variant='ghost' size='lg' minH={'60px'} as={'a'}
-                                            href={`tel:${phoneNumber}`} _hover={{bg: 'white'}} color={'gray.800'}>
+                                            href={`tel:${phoneNumber}`} aria-label={phoneNumber} _hover={{bg: 'white'}} color={'gray.800'}>
                                         Call Us Anytime<br/>
                                         {formatPhone(phoneNumber)}
                                     </Button>

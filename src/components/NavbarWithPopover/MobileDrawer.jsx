@@ -35,10 +35,12 @@ export const MobileDrawer = ({navigation}) => {
                                 return (
                                     <Button size="lg" variant="tertiary" justifyContent="start" as={'a'}
                                             key={navItem.page.title} mt={index === 0 ? '5' : '0'}
+                                            aria-label={navItem.page.title}
                                             href={getNavPath(navItem.page.slug)}>{navItem.page.title}</Button>
                                 )
                             })}
                             <Button size="lg" variant="tertiary" justifyContent="start" as={'a'}
+                                    aria-label={'Blog'}
                                     href={'/blog'}>Blog</Button>
                         </Stack>
                     </DrawerBody>

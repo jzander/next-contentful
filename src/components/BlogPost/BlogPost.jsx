@@ -5,7 +5,7 @@ import {FaArrowRight} from "react-icons/fa";
 export const BlogPost = (props) => {
     const {post, isHero, brandColor} = props
     return (
-        <Link _hover={{textDecor: 'none'}} role="group" boxShadow="xl" href={`/blog/${post.slug}`}>
+        <Link _hover={{textDecor: 'none'}} role="group" boxShadow="xl" aria-label={post?.title} href={`/blog/${post.slug}`}>
             <Stack spacing="8">
                 <Box overflow="hidden">
                     <Image

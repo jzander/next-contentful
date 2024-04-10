@@ -188,6 +188,7 @@ const ServiceSection = ({
                             color={"white"}
                             as={'a'}
                             href={'/services'}
+                            aria-label={'See all of our services'}
                             _hover={{
                                 bg: `#${LightenDarkenColor(brandColor?.value.replace("#", ''), 40)}`
                             }}>See all of our

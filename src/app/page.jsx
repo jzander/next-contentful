@@ -48,6 +48,8 @@ export async function generateMetadata() {
         description: pageData?.metaDescription,
         openGraph: {
             images: pageData?.metaImage?.url,
+            type: "website",
+            url: `${process.env.WEBSITE_URL}`,
         },
         alternates: {
             canonical: `${process.env.WEBSITE_URL}`,

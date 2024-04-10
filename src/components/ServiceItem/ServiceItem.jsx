@@ -18,6 +18,7 @@ const ServiceItem = ({service, website}) => {
             </Stack>
             <Button variant="text" colorScheme="blue" rightIcon={<FiArrowRight/>}
                     alignSelf="start"
+                    aria-label={service.title}
                     p={0} as={'a'} href={`/${service.slug}`}>
                 {service.title}
             </Button>

@@ -24,6 +24,8 @@ export async function generateMetadata({params}) {
         description: metaDescription,
         openGraph: {
             images: metaImage.url,
+            type: "website",
+            url: `${process.env.WEBSITE_URL}/blog`,
         },
         'theme-color': themeColor,
         alternates: {

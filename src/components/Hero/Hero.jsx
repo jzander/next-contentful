@@ -34,7 +34,7 @@ const Hero = ({
                     color={fontColor?.value ? fontColor.value : 'white'}
                 >
                     <Box maxW="5xl">
-                        <Link href={`tel:${phoneNumber}`} _hover={{textDecoration: 'none'}}>
+                        <Link href={`tel:${phoneNumber}`} aria-label={phoneNumber} _hover={{textDecoration: 'none'}}>
                             <Stack color={accentColor?.value || 'yellow.500'} fontWeight={'bold'} display={'flex'}
                                    flexDirection={{base: 'column', md: 'row'}} alignItems={{base: 'start', md: 'end'}}
                                    spacing={{base: 0, md: 2}}>
@@ -68,7 +68,7 @@ const Hero = ({
                             mt="10"
                             spacing="4"
                         >
-                            <Button as={'a'} href={`tel:${phoneNumber}`} fontSize={'20px'}
+                            <Button as={'a'} href={`tel:${phoneNumber}`} aria-label={phoneNumber} fontSize={'20px'}
                                     bg={buttonBackgroundColor?.value || accentColor?.value}
                                     _hover={{
                                         bg: hoverVal ? `#${LightenDarkenColor(hoverVal.replace("#", ''), 40)}` : 'gray.700',

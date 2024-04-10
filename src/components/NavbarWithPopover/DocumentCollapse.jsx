@@ -14,7 +14,7 @@ export const DocumentCollapse = ({items, title}) => {
                     {/* eslint-disable-next-line react/prop-types */}
                     {items.map(({title, slug}) => {
                         return (
-                            <Button as={'a'} href={slug} key={title} size="lg" variant="tertiary"
+                            <Button as={'a'} aria-label={title} href={slug} key={title} size="lg" variant="tertiary"
                                     justifyContent="start">
                                 {title}
                             </Button>

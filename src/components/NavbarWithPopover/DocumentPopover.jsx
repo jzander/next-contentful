@@ -7,7 +7,7 @@ export const DocumentPopover = ({items, title, href}) => {
     return (
         <Popover isOpen={isOpen} onOpen={onOpen} onClose={onClose} trigger="hover" openDelay={0}>
             <PopoverTrigger>
-                <Button as={'a'} href={href} rightIcon={<PopoverIcon isOpen={isOpen}/>} color={'gray.800'}
+                <Button as={'a'} href={href} aria-label={title} rightIcon={<PopoverIcon isOpen={isOpen}/>} color={'gray.800'}
                         css={` border: 0;
                             font-family: "Nunito Sans", sans-serif;
                             font-size: 17px;
@@ -28,6 +28,7 @@ export const DocumentPopover = ({items, title, href}) => {
                         }
                         return (
                             <Button as={'a'} href={getNavPath(navItem?.slug)}
+                                    aria-label={navItem.title}
                                     key={navItem.title}
                                     variant="tertiary" justifyContent="start" color={'gray.800'}>
                                 {navItem.title}

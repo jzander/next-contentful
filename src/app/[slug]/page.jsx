@@ -48,6 +48,8 @@ export async function generateMetadata({params}) {
         },
         openGraph: {
             images: pageData?.metaImage?.url,
+            type: "website",
+            url: `${process.env.WEBSITE_URL}/${params.slug}`,
         },
         'theme-color': themeColor
     }

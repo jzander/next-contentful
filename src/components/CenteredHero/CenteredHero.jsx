@@ -70,7 +70,7 @@ const CenteredHero = ({
                         spacing="4"
                     >
                         <LightMode>
-                            <Button as={'a'} href={`tel:${phoneNumber}`} fontSize={'20px'}
+                            <Button as={'a'} aria-label={phoneNumber} href={`tel:${phoneNumber}`} fontSize={'20px'}
                                     bg={buttonColor?.value || 'blue.800'} color={'white'}
                                     _hover={{bg: 'gray.700', color: 'white', cursor: 'pointer'}} borderRadius={0}
                                     lineHeight={'26px'} minH={'56px'} px={10} fontWeight={'bold'} letterSpacing={'1px'}

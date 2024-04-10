@@ -22,10 +22,10 @@ export const NotFoundSectionWithLayout = () => {
                         The page you're looking for doesn't exist or has been moved.
                     </Text>
                     <Text color="gray.600" textAlign="center">
-                        If you think this is a mistake, please <Link color="blue.500" href="/contact">contact
+                        If you think this is a mistake, please <Link color="blue.500" href="/contact" aria-label={'contact support'}>contact
                         support</Link>.
                     </Text>
-                    <Button colorScheme="blue" as="a" href="/">
+                    <Button colorScheme="blue" as="a" href="/" aria-label={'Go Back Home'}>
                         Go Back Home
                     </Button>
                 </VStack>
