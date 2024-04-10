@@ -7,6 +7,7 @@ import {Footer} from "@/components/FooterWithFourColumnsOnAccent/Footer";
 import {client} from "../../lib/api";
 import {GoogleTagManager} from '@next/third-parties/google'
 import Head from "next/head";
+import Script from "next/script";
 
 export default async function RootLayout({children}) {
     const global = await client.fetchContentfulGlobalDataGraphQL()
@@ -20,13 +21,11 @@ export default async function RootLayout({children}) {
     };
     return (
         <html lang='en'>
-        <Head>
-            {globalData?.localBusinessMarkup &&
-                <script type="application/ld+json"
-                        dangerouslySetInnerHTML={{__html: JSON.stringify(globalData.localBusinessMarkup)}}/>
-            }
-            <script src="https://assets.usestyle.ai/seonajsplugin" defer id="seona-js-plugin"></script>
-        </Head>
+        <Script src="https://assets.usestyle.ai/seonajsplugin" defer id="seona-js-plugin"/>
+        {globalData?.localBusinessMarkup &&
+            <Script id="localBusinessMarkup" type="application/ld+json"
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(globalData.localBusinessMarkup)}}/>
+        }
         {globalData?.googleTagManagerId &&
             <GoogleTagManager gtmId={globalData?.googleTagManagerId}/>
         }
