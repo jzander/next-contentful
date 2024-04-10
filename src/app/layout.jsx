@@ -20,12 +20,13 @@ export default async function RootLayout({children}) {
     };
     return (
         <html lang='en'>
-        {globalData?.localBusinessMarkup &&
-            <Head>
+        <Head>
+            {globalData?.localBusinessMarkup &&
                 <script type="application/ld+json"
                         dangerouslySetInnerHTML={{__html: JSON.stringify(globalData.localBusinessMarkup)}}/>
-            </Head>
-        }
+            }
+            <script src="https://assets.usestyle.ai/seonajsplugin" defer id="seona-js-plugin"></script>
+        </Head>
         {globalData?.googleTagManagerId &&
             <GoogleTagManager gtmId={globalData?.googleTagManagerId}/>
         }
