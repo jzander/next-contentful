@@ -37,6 +37,5 @@ export async function generateMetadata({params}) {
 export default async function BlogPostContainer({params}) {
     const {blogPost, latestPosts} = await getBlogPostData(params.blogPost);
     const globalData = await getGlobalData()
-
     return <BlogPostItem blogPost={blogPost} latestPosts={latestPosts} globalData={globalData}/>;
 }
