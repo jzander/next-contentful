@@ -7,7 +7,12 @@ export async function getBlogPostData(slug) {
         client.fetchContentfulBlogPostBySlugDataGql(slug),
         client.fetchContentfulLatestBlogPostsDataGql()
     ]);
+    const embeddedAsset = blogPost.body.json.content.find((node)=> {
+        return node.nodeType === 'embedded-asset-block'
+    })
+    const asset = await client.fetchContentfulAssetById(embeddedAsset.data.target.sys.id);
     return {
+        asset,
         blogPost,
         latestPosts,
         WEBSITE: process.env.WEBSITE_URL,
@@ -35,7 +40,7 @@ export async function generateMetadata({params}) {
 }
 
 export default async function BlogPostContainer({params}) {
-    const {blogPost, latestPosts} = await getBlogPostData(params.blogPost);
+    const {blogPost, latestPosts, asset} = await getBlogPostData(params.blogPost);
     const globalData = await getGlobalData()
-    return <BlogPostItem blogPost={blogPost} latestPosts={latestPosts} globalData={globalData}/>;
+    return <BlogPostItem blogPost={blogPost} latestPosts={latestPosts} globalData={globalData} asset={asset}/>;
 }

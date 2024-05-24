@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 
-export const richTextOptions = (website, noOfLines) => {
+export const richTextOptions = (website, noOfLines, asset) => {
     return {
         renderMark: {
             [MARKS.BOLD]: (text) => <strong>{text}</strong>,
@@ -47,8 +47,8 @@ export const richTextOptions = (website, noOfLines) => {
             [BLOCKS.EMBEDDED_ASSET]: (node) => (
                 <Image
                     py={5}
-                    src={node.data?.target?.fields?.file?.url}
-                    alt={node.data?.target?.fields?.title}
+                    src={asset?.url || node.data?.target?.fields?.file?.url}
+                    alt={asset?.title || node.data?.target?.fields?.title}
                 />
             ),
         },

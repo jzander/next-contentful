@@ -12,7 +12,7 @@ const CenteredHero = lazy(() =>
     import("@/components/CenteredHero/CenteredHero")
 );
 
-export default function BlogPostItem({blogPost, latestPosts, globalData}) {
+export default function BlogPostItem({blogPost, latestPosts, globalData, asset}) {
     const WEBSITE = process.env.WEBSITE_URL;
     return (
         <Box>
@@ -74,7 +74,7 @@ export default function BlogPostItem({blogPost, latestPosts, globalData}) {
                                 <Stack spacing="3">
                                     {documentToReactComponents(
                                         blogPost?.body?.json,
-                                        richTextOptions(WEBSITE)
+                                        richTextOptions(WEBSITE, undefined, asset)
                                     )}
                                 </Stack>
                                 <Stack
