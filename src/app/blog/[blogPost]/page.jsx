@@ -12,7 +12,7 @@ export async function getBlogPostData(slug) {
     })
     const asset = await client.fetchContentfulAssetById(embeddedAsset.data.target.sys.id);
     return {
-        asset,
+        asset: asset || {},
         blogPost,
         latestPosts,
         WEBSITE: process.env.WEBSITE_URL,
@@ -40,7 +40,7 @@ export async function generateMetadata({params}) {
 }
 
 export default async function BlogPostContainer({params}) {
-    const {blogPost, latestPosts, asset} = await getBlogPostData(params.blogPost);
+    const {blogPost, latestPosts, asset = {}} = await getBlogPostData(params.blogPost);
     const globalData = await getGlobalData()
     return <BlogPostItem blogPost={blogPost} latestPosts={latestPosts} globalData={globalData} asset={asset}/>;
 }
