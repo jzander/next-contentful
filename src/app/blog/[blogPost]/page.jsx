@@ -10,9 +10,9 @@ export async function getBlogPostData(slug) {
     const embeddedAsset = blogPost.body.json.content.find((node)=> {
         return node.nodeType === 'embedded-asset-block'
     })
-    const asset = await client.fetchContentfulAssetById(embeddedAsset.data.target.sys.id);
+    const asset = embeddedAsset?.data?.target?.sys?.id ? await client.fetchContentfulAssetById(embeddedAsset?.data?.target?.sys?.id) : {};
     return {
-        asset: asset || {},
+        asset: asset,
         blogPost,
         latestPosts,
         WEBSITE: process.env.WEBSITE_URL,
